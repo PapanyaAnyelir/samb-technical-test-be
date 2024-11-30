@@ -1,7 +1,7 @@
 package models
 
 type Warehouse struct {
-	WhsPK          int64  `gorm:"primaryKey" json:"warehouse_pk"`
+	WhsPK          int64  `gorm:"primaryKey;autoIncrement" json:"warehouse_pk"`
 	WhsName string `gorm:"type:varchar(300)" json:"warehouse_name"`
 }
 

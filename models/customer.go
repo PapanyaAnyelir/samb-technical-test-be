@@ -1,7 +1,7 @@
 package models
 
 type Customer struct {
-	CustomerPK           int64  `gorm:"primaryKey" json:"customer_pk"`
+	CustomerPK           int64  `gorm:"primaryKey;autoIncrement" json:"customer_pk"`
 	CustomerName 			string `gorm:"type:varchar(300)" json:"customer_name"`
 }
 

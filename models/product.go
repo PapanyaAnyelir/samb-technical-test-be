@@ -1,7 +1,7 @@
 package models
 
 type Product struct {
-	ProductPK          int64  `gorm:"primaryKey" json:"product_pk"`
+	ProductPK          int64  `gorm:"primaryKey;autoIncrement" json:"product_pk"`
 	ProductName string `gorm:"type:varchar(300)" json:"product_name"`
 }
 

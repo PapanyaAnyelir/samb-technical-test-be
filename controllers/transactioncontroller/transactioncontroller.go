@@ -109,7 +109,7 @@ func LaporanStok(c *gin.Context) {
 		LEFT JOIN 
 			pengeluaran_barang_details out_detail ON p.product_pk = out_detail.trx_out_d_product_idf
 		LEFT JOIN 
-			pengeluaran_barang_headers out_header ON out_detail.trx_out_id_f = out_header.trx_out_pk AND out_header.whsidf = w.whs_pk
+			pengeluaran_barang_headers out_header ON out_detail.trx_out_id_f = out_header.trx_out_pk AND out_header.whs_idf = w.whs_pk
 		GROUP BY 
 			w.whs_name, p.product_name`
 

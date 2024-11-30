@@ -567,7 +567,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"header\": {\r\n    \"trx_out_no\": \"OUT001\",\r\n    \"whs_idf\": 1,\r\n    \"trx_out_supp_idf\": 2,\r\n    \"trx_out_notes\": \"Barang dikeluarkan\"\r\n  },\r\n  \"details\": [\r\n    {\r\n      \"trx_out_d_product_idf\": 3,\r\n      \"trx_out_d_qty_dus\": 1,\r\n      \"trx_out_d_qty_pcs\": 1\r\n    }\r\n  ]\r\n}\r\n",
+							"raw": "{\r\n  \"header\": {\r\n    \"whs_idf\": 1,\r\n    \"trx_out_supp_idf\": 2,\r\n    \"trx_out_notes\": \"Barang dikeluarkan\"\r\n  },\r\n  \"details\": [\r\n    {\r\n      \"trx_out_d_product_idf\": 3,\r\n      \"trx_out_d_qty_dus\": 1,\r\n      \"trx_out_d_qty_pcs\": 1\r\n    }\r\n  ]\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"

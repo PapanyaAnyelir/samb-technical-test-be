@@ -100,16 +100,16 @@ func LaporanStok(c *gin.Context) {
 			COALESCE(SUM(in_detail.trx_in_d_qty_pcs), 0) - COALESCE(SUM(out_detail.trx_out_d_qty_pcs), 0) AS qty_pcs
 		FROM 
 			warehouses w
-		CROSS JOIN 
-			products p
+		JOIN 
+			penerimaan_barang_headers in_header ON in_header.whs_idf = w.whs_pk
+		JOIN 
+			penerimaan_barang_details in_detail ON in_detail.trx_in_id_f = in_header.trx_in_pk
+		JOIN 
+			products p ON p.product_pk = in_detail.trx_in_d_product_idf
 		LEFT JOIN 
-			penerimaan_barang_details in_detail ON p.product_pk = in_detail.trx_in_d_product_idf
+			pengeluaran_barang_headers out_header ON out_header.whs_idf = w.whs_pk
 		LEFT JOIN 
-			penerimaan_barang_headers in_header ON in_detail.trx_in_id_f = in_header.trx_in_pk AND in_header.whs_idf = w.whs_pk
-		LEFT JOIN 
-			pengeluaran_barang_details out_detail ON p.product_pk = out_detail.trx_out_d_product_idf
-		LEFT JOIN 
-			pengeluaran_barang_headers out_header ON out_detail.trx_out_id_f = out_header.trx_out_pk AND out_header.whs_idf = w.whs_pk
+			pengeluaran_barang_details out_detail ON out_detail.trx_out_id_f = out_header.trx_out_pk AND out_detail.trx_out_d_product_idf = p.product_pk
 		GROUP BY 
 			w.whs_name, p.product_name`
 
